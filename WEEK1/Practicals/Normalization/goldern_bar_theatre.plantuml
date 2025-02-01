@@ -1,0 +1,43 @@
+@startuml goldern_bar_theatre
+
+entity Reservations {
+    * reservation_id : INT <<PK>>
+    * show_id : INT <<FK>>
+    * member_id : INT <<FK>>
+    * seat_id : INT <<FK>>
+    --
+    reservation_date: DATE
+
+}
+
+entity Shows {
+    * show_id : INT <<PK>>
+    --
+    show_production: VARCHAR(50)
+    show_date: DATE
+    show_time: TIME
+}
+
+entity Seats {
+    * seat_id : INT <<PK>>
+    --
+    seat_price: DECIMAL(10,2)
+}
+
+entity Members {
+    * member__id : INT <<PK>>
+    --
+    member_name : VARCHAR(50)
+    member_address : VARCHAR(255)
+    member_postcode : VARCHAR(15)
+    member_city : VARCHAR(15)
+    member_email: VARCHAR(50)
+    member_type: VARCHAR(15)
+}
+
+
+Orders ||--|{ Items
+Orders }|--|| Customers
+PaymentDetails ||--|| Customers
+
+@enduml

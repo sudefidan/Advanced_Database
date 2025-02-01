@@ -1,0 +1,39 @@
+@startuml antiques_dealer
+
+entity Orders {
+    * order_id : INT <<PK>>
+    * item_id : INT <<FK>>
+    * customer_id : INT <<FK>>
+    --
+    date_of_purchase : DATE
+    delivered : boolean
+}
+
+entity Items {
+    * item_id : INT <<PK>>
+    --
+    item_description : VARCHAR(255)
+    item_price : DECiMAL(10,2)
+}
+
+entity Customers {
+    * customer_id : INT <<PK>>
+    --
+    customer_name : VARCHAR(50)
+    customer_address : VARCHAR(255)
+    customer_phone : VARCHAR(15)
+}
+
+entity PaymentDetails {
+    * customer_id : INT <<FK>>
+    --
+    card_number : VARCHAR(16)
+    card_type: VARCHAR(15)
+    expiry_date: DATE
+}
+
+Orders ||--|{ Items
+Orders }|--|| Customers
+PaymentDetails ||--|| Customers
+
+@enduml
