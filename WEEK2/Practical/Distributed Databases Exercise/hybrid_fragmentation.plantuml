@@ -1,0 +1,44 @@
+@startuml hybrid_fragmentation
+
+entity PersonalInfo_USA {
+    * name : VARCHAR(50)
+    * DoB : DATE
+    * nationality : VARCHAR(50)
+    * country_of_residence : VARCHAR(50)
+    ---
+}
+
+entity ProfessionalInfo_USA {
+    * name : VARCHAR(50)
+    * sport : VARCHAR(50)
+    * main_sponsor : VARCHAR(50)
+    * bank : VARCHAR(50)
+    * bank_location : VARCHAR(50)
+    * resident_status : VARCHAR(50)
+    * visa_expiry : DATE
+    ---
+}
+
+entity PersonalInfo_Europe {
+    * name : VARCHAR(50)
+    * DoB : DATE
+    * nationality : VARCHAR(50)
+    * country_of_residence : VARCHAR(50)
+    ---
+}
+
+entity ProfessionalInfo_Europe {
+    * name : VARCHAR(50)
+    * sport : VARCHAR(50)
+    * main_sponsor : VARCHAR(50)
+    * bank : VARCHAR(50)
+    * bank_location : VARCHAR(50)
+    * resident_status : VARCHAR(50)
+    * visa_expiry : DATE
+    ---
+}
+
+PersonalInfo_USA ||--|| ProfessionalInfo_USA : "name"
+PersonalInfo_Europe ||--|| ProfessionalInfo_Europe : "name"
+
+@enduml
