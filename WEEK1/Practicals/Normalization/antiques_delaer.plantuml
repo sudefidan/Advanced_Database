@@ -1,5 +1,8 @@
 @startuml antiques_dealer
 
+hide circle
+
+
 entity Orders {
     * order_id : INT <<PK>>
     * item_id : INT <<FK>>
@@ -25,15 +28,17 @@ entity Customers {
 }
 
 entity PaymentDetails {
+    * payment_id : INT <<PK>>
     * customer_id : INT <<FK>>
     --
     card_number : VARCHAR(16)
     card_type: VARCHAR(15)
     expiry_date: DATE
+
 }
 
 Orders ||--|{ Items
 Orders }|--|| Customers
-PaymentDetails ||--|| Customers
+PaymentDetails }o--|| Customers
 
 @enduml
