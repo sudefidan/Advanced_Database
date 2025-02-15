@@ -1,0 +1,49 @@
+@startuml ER Diagram
+
+hide circle
+
+entity "Person" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * name : STRING NOT NULL
+  * email : STRING NOT NULL
+  * dob : DATE NOT NULL
+}
+
+entity "Address" {
+  * id : INTEGER NOT NULL <<PK>> <<FK>>
+  --
+  * street : STRING NOT NULL
+  * city : STRING NOT NULL
+  * country : STRING NOT NULL
+  * zipcode : STRING NOT NULL
+}
+
+entity "Favorite" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * type : STRING NOT NULL
+  * value : STRING NOT NULL
+  * person_id : INTEGER NOT NULL <<FK>>
+}
+
+entity "PersonNeighbour" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * person_id : INTEGER NOT NULL <<FK>>
+  * neighbour_id : INTEGER NOT NULL <<FK>>
+}
+
+entity "Neighbour" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * name : STRING NOT NULL
+  * email : STRING NOT NULL
+}
+
+Person ||--o{ Favorite
+Person ||--|| Address
+
+Person }o--o{ PersonNeighbour
+PersonNeighbour }o--o{ Neighbour
+@enduml

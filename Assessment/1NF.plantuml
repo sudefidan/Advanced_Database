@@ -1,0 +1,20 @@
+@startuml 1NF
+
+hide circle
+
+entity "Person" {
+  * name : STRING NOT NULL
+  * email : STRING NOT NULL
+  * dob : DATE NOT NULL
+  * street : STRING NOT NULL
+  * city : STRING NOT NULL
+  * country : STRING NOT NULL
+  * zipcode : STRING NOT NULL
+  * favorite_books : STRING NOT NULL
+  * favorite_drink : STRING NOT NULL
+  * favorite_activity : STRING NOT NULL
+  * neighbour_name : STRING NOT NULL
+  * neighbour_email : STRING NOT NULL
+}
+
+@enduml
