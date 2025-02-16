@@ -19,7 +19,7 @@ entity "Address" {
   * zipcode : VARCHAR(255) NOT NULL
 }
 
-entity "Favorite" {
+entity "Favourite" {
   * id : INTEGER NOT NULL <<PK>>
   --
   * type : VARCHAR(255) NOT NULL

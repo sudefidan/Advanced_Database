@@ -20,6 +20,7 @@ cursor = conn.cursor()
 # Create the table if it doesn't exist
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS 1NF (
+        id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
         dob DATE NOT NULL,
@@ -27,19 +28,18 @@ cursor.execute("""
         city VARCHAR(255) NOT NULL,
         country VARCHAR(255) NOT NULL,
         zipcode VARCHAR(20) NOT NULL,
-        favorite_book VARCHAR(255) NOT NULL,
-        favorite_drink VARCHAR(255) NOT NULL,
-        favorite_activity VARCHAR(255) NOT NULL,
+        favourite_book VARCHAR(255) NOT NULL,
+        favourite_drink VARCHAR(255) NOT NULL,
+        favourite_activity VARCHAR(255) NOT NULL,
         neighbour_name VARCHAR(255) NOT NULL,
-        neighbour_email VARCHAR(255) NOT NULL,
-        PRIMARY KEY (name)
+        neighbour_email VARCHAR(255) NOT NULL
     )
 """)
 
 # Insert data into the database
 for index, row in df.iterrows():
     cursor.execute("""
-        INSERT INTO 1NF (name, email, dob, street, city, country, zipcode, favorite_book, favorite_drink, favorite_activity, neighbour_name, neighbour_email)
+        INSERT INTO 1NF (name, email, dob, street, city, country, zipcode, favourite_book, favourite_drink, favourite_activity, neighbour_name, neighbour_email)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """, (
         row['name'], row['email'], row['dob'], row['street'], row['city'], row['country'], row['zipcode'],

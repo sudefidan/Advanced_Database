@@ -43,7 +43,7 @@ cursor.execute("""
 """)
 
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS Favorite (
+    CREATE TABLE IF NOT EXISTS Favourite (
         id INT AUTO_INCREMENT PRIMARY KEY,
         type VARCHAR(255) NOT NULL,
         value VARCHAR(255) NOT NULL,
@@ -92,15 +92,15 @@ for index, row in df.iterrows():
 
         # Insert data into the Favorite table
         cursor.execute("""
-            INSERT INTO Favorite (type, value, person_id)
+            INSERT INTO Favourite (type, value, person_id)
             VALUES ('Book', %s, %s)
         """, (row['favorite_book'], person_id))
         cursor.execute("""
-            INSERT INTO Favorite (type, value, person_id)
+            INSERT INTO Favourite (type, value, person_id)
             VALUES ('Drink', %s, %s)
         """, (row['favorite_drink'], person_id))
         cursor.execute("""
-            INSERT INTO Favorite (type, value, person_id)
+            INSERT INTO Favourite (type, value, person_id)
             VALUES ('Activity', %s, %s)
         """, (row['favorite_activity'], person_id))
 
