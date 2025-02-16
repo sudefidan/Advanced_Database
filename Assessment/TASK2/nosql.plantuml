@@ -1,0 +1,31 @@
+@startjson
+{
+  "Person": {
+    "_id": "ObjectId",
+    "Name": "String",
+    "Email": "String",
+    "DOB": "String",
+    "Address": {
+      "Street": "String",
+      "City": "String",
+      "Country": "String",
+      "Zip Code": "String"
+    },
+    "Favorite": {
+      "Favorite Book": "String",
+      "Favorite Drink": "String",
+      "Favorite Activity": "String"
+    },
+    "Neighbours": [
+      {
+        "Neighbour 1 Name": "String",
+        "Neighbour 1 Email": "String"
+      },
+      {
+        "Neighbour 2 Name": "String",
+        "Neighbour 2 Email": "String"
+      }
+    ]
+  }
+}
+@endjson
