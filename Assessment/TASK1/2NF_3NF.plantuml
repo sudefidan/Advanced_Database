@@ -41,7 +41,7 @@ entity "Neighbour" {
   * email : VARCHAR(255) NOT NULL
 }
 
-Person ||--o{ Favorite
+Person ||--o{ Favourite
 Person ||--|| Address
 
 Person }o--o{ PersonNeighbour
