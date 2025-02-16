@@ -3,18 +3,18 @@
 hide circle
 
 entity "Person" {
-  * name : STRING NOT NULL
-  * email : STRING NOT NULL
+  * name : VARCHAR(255) NOT NULL
+  * email : VARCHAR(255) NOT NULL
   * dob : DATE NOT NULL
-  * street : STRING NOT NULL
-  * city : STRING NOT NULL
-  * country : STRING NOT NULL
-  * zipcode : STRING NOT NULL
-  * favorite_books : STRING NOT NULL
-  * favorite_drink : STRING NOT NULL
-  * favorite_activity : STRING NOT NULL
-  * neighbour_name : STRING NOT NULL
-  * neighbour_email : STRING NOT NULL
+  * street : VARCHAR(255) NOT NULL
+  * city : VARCHAR(255) NOT NULL
+  * country : VARCHAR(255) NOT NULL
+  * zipcode : VARCHAR(255) NOT NULL
+  * favorite_books : VARCHAR(255) NOT NULL
+  * favorite_drink : VARCHAR(255) NOT NULL
+  * favorite_activity : VARCHAR(255) NOT NULL
+  * neighbour_name : VARCHAR(255) NOT NULL
+  * neighbour_email : VARCHAR(255) NOT NULL
 }
 
 @enduml

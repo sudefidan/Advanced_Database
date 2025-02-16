@@ -5,25 +5,25 @@ hide circle
 entity "Person" {
   * id : INTEGER NOT NULL <<PK>>
   --
-  * name : STRING NOT NULL
-  * email : STRING NOT NULL
+  * name : VARCHAR(255) NOT NULL
+  * email : VARCHAR(255) NOT NULL
   * dob : DATE NOT NULL
 }
 
 entity "Address" {
   * id : INTEGER NOT NULL <<PK>> <<FK>>
   --
-  * street : STRING NOT NULL
-  * city : STRING NOT NULL
-  * country : STRING NOT NULL
-  * zipcode : STRING NOT NULL
+  * street : VARCHAR(255) NOT NULL
+  * city : VARCHAR(255) NOT NULL
+  * country : VARCHAR(255) NOT NULL
+  * zipcode : VARCHAR(255) NOT NULL
 }
 
 entity "Favorite" {
   * id : INTEGER NOT NULL <<PK>>
   --
-  * type : STRING NOT NULL
-  * value : STRING NOT NULL
+  * type : VARCHAR(255) NOT NULL
+  * value : VARCHAR(255) NOT NULL
   * person_id : INTEGER NOT NULL <<FK>>
 }
 
@@ -37,8 +37,8 @@ entity "PersonNeighbour" {
 entity "Neighbour" {
   * id : INTEGER NOT NULL <<PK>>
   --
-  * name : STRING NOT NULL
-  * email : STRING NOT NULL
+  * name : VARCHAR(255) NOT NULL
+  * email : VARCHAR(255) NOT NULL
 }
 
 Person ||--o{ Favorite
