@@ -4,17 +4,17 @@ SELECT name,
 FROM Person;
 
 -- Group Persons by their favourite drink and return average age of each group
-SELECT f.value AS favorite_drink,
+SELECT f.value AS favourite_drink,
        ROUND(AVG(TIMESTAMPDIFF(YEAR, p.dob, CURDATE())), 2) AS average_age
 FROM Person p
-JOIN Favorite f ON p.id = f.person_id
+JOIN Favourite f ON p.id = f.person_id
 WHERE f.type = 'Drink'
 GROUP BY f.value;
 
 -- Display average age of people who likes Hiking
 SELECT f.value as activity, ROUND(AVG(TIMESTAMPDIFF(YEAR, dob, CURDATE())), 2) AS average_age
 FROM Person p
-JOIN Favorite f ON p.id = f.person_id
+JOIN Favourite f ON p.id = f.person_id
 WHERE f.type = 'Activity' AND f.value = 'Hiking';
 
 -- Display the total number of people from each City and sort it in ascending order by total number of people
