@@ -18,12 +18,12 @@
     },
     "Neighbours": [
       {
-        "Neighbour 1 Name": "String",
-        "Neighbour 1 Email": "String"
+        "Neighbour 1": "String",
+        "Neighbour1Email": "String"
       },
       {
-        "Neighbour 2 Name": "String",
-        "Neighbour 2 Email": "String"
+        "Neighbour mode2": "String",
+        "Neighbour2Email": "String"
       }
     ]
   }
