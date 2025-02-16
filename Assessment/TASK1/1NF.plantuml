@@ -2,7 +2,9 @@
 
 hide circle
 
-entity "Person" {
+entity "1NF" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
   * name : VARCHAR(255) NOT NULL
   * email : VARCHAR(255) NOT NULL
   * dob : DATE NOT NULL
