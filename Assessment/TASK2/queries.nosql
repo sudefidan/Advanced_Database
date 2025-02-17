@@ -1,0 +1,169 @@
+-- Display person's name and their age in years:
+[
+  {
+    "$addFields": {
+      "DOB": {
+        "$dateFromString": {
+          "dateString": "$DOB",
+          "format": "%d/%m/%Y" // format the date
+        }
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "Age": {
+        "$floor": {
+          "$divide": [
+            {
+              "$subtract": [
+                new Date(),
+                "$DOB"
+              ]
+            },
+            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
+          ]
+        }
+      }
+    }
+  },
+  {
+    "$project": {
+      "Name": 1,
+      "Age": 1
+    }
+  }
+]
+
+-- Group Persons by their favourite drink and return average age of each group
+[
+  {
+    "$addFields": {
+      "DOB": {
+        "$dateFromString": {
+          "dateString": "$DOB",
+          "format": "%d/%m/%Y" // format the date
+        }
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "Age": {
+        "$floor": {
+          "$divide": [
+            {
+              "$subtract": [
+                new Date(),
+                "$DOB"
+              ]
+            },
+            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
+          ]
+        }
+      }
+    }
+  },
+  {
+    "$unwind": "$Favourites" // deconstruct the array
+  },
+  {
+    "$match": {
+      "Favourites.Type": "Drink"
+    }
+  },
+  {
+    "$group": {
+      "_id": "$Favourites.Value",
+      "averageAge": {
+        "$avg": "$Age"
+      }
+    }
+  }
+]
+
+-- Display average age of people who likes Hiking
+
+[
+  {
+    "$addFields": {
+      "DOB": {
+        "$dateFromString": {
+          "dateString": "$DOB",
+          "format": "%d/%m/%Y" // format the date
+        }
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "Age": {
+        "$floor": {
+          "$divide": [
+            {
+              "$subtract": [
+                new Date(),
+                "$DOB"
+              ]
+            },
+            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
+          ]
+        }
+      }
+    }
+  },
+  {
+    "$unwind": "$Favourites" // deconstruct the array
+  },
+  {
+    "$match": {
+      "Favourites.Type": "Activity",
+      "Favourites.Value": "Hiking"
+    }
+  },
+  {
+    "$group": {
+      "_id": "$Favourites.Value",
+      "Average Age": {
+        "$avg": "$Age"
+      }
+    }
+  }
+]
+
+-- Display the total number of people from each City and sort it in ascending order by total number of people
+[
+  {
+    "$unwind": "$Addresses" // deconstruct the array
+  },
+  {
+    "$group": {
+      "_id": "$Addresses.City",
+      "totalPeople": {
+        "$sum": 1
+      }
+    }
+  },
+  {
+    "$sort": {
+      "totalPeople": 1 // sort in ascending order
+    }
+  }
+]
+-- Display name of person(s) whose neighbour is neighbour C
+[
+  {
+    "$unwind": "$Neighbours"  // deconstruct the array
+  },
+  {
+    "$match": {
+      "Neighbours.Neighbour Name": "Neighbour C"
+    }
+  },
+  {
+    "$project": {
+      "Name": 1,
+      "Neighbour Name": "$Neighbours.Neighbour Name"
+    }
+  }
+]
