@@ -10,21 +10,21 @@ entity "Person" {
   * dob : DATE NOT NULL
 }
 
-entity "Address" {
-  * id : INTEGER NOT NULL <<PK>> <<FK>>
+entity "PersonAddress" {
+  * id : INTEGER NOT NULL <<PK>>
   --
+  * person_id : INTEGER NOT NULL <<FK>>
+  * address_id : INTEGER NOT NULL <<FK>>
+}
+
+entity "Address" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * type : VARCHAR(255) NOT NULL
   * street : VARCHAR(255) NOT NULL
   * city : VARCHAR(255) NOT NULL
   * country : VARCHAR(255) NOT NULL
   * zipcode : VARCHAR(255) NOT NULL
-}
-
-entity "Favourite" {
-  * id : INTEGER NOT NULL <<PK>>
-  --
-  * type : VARCHAR(255) NOT NULL
-  * value : VARCHAR(255) NOT NULL
-  * person_id : INTEGER NOT NULL <<FK>>
 }
 
 entity "PersonNeighbour" {
@@ -41,9 +41,19 @@ entity "Neighbour" {
   * email : VARCHAR(255) NOT NULL
 }
 
-Person ||--o{ Favourite
-Person ||--|| Address
+entity "Favourite" {
+  * id : INTEGER NOT NULL <<PK>>
+  --
+  * type : VARCHAR(255) NOT NULL
+  * value : VARCHAR(255) NOT NULL
+  * person_id : INTEGER NOT NULL <<FK>>
+}
+
+Person }o--o{ PersonAddress
+PersonAddress }o--o{ Address
 
 Person }o--o{ PersonNeighbour
 PersonNeighbour }o--o{ Neighbour
+
+Person ||--o{ Favourite
 @enduml

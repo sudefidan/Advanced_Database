@@ -2,7 +2,7 @@ import pandas as pd
 import mysql.connector
 
 # Load the Excel file
-df = pd.read_excel('1NF.xlsx')
+df = pd.read_excel('Assessment/TASK1/1NF.xlsx')
 
 # Print the column names to verify
 print(df.columns)
@@ -33,14 +33,25 @@ cursor.execute("""
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS Address (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        person_id INT,
+        type VARCHAR(255),
         street VARCHAR(255) NOT NULL,
         city VARCHAR(255) NOT NULL,
         country VARCHAR(255) NOT NULL,
-        zipcode VARCHAR(20) NOT NULL,
-        FOREIGN KEY (person_id) REFERENCES Person(id)
+        zipcode VARCHAR(20) NOT NULL
     )
 """)
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS PersonAddress (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        person_id INT,
+        address_id INT,
+        FOREIGN KEY (person_id) REFERENCES Person(id),
+        FOREIGN KEY (address_id) REFERENCES Address(id)
+    )
+""")
+
+
 
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS Favourite (
@@ -86,9 +97,16 @@ for index, row in df.iterrows():
 
         # Insert data into the Address table
         cursor.execute("""
-            INSERT INTO Address (person_id, street, city, country, zipcode)
+            INSERT INTO Address (type, street, city, country, zipcode)
             VALUES (%s, %s, %s, %s, %s)
-        """, (person_id, row['street'], row['city'], row['country'], row['zipcode']))
+        """, ('Home', row['street'], row['city'], row['country'], row['zipcode']))
+        address_id = cursor.lastrowid
+
+        # Insert data into the PersonAddress table
+        cursor.execute("""
+            INSERT INTO PersonAddress (person_id, address_id)
+            VALUES (%s, %s)
+        """, (person_id, address_id))
 
         # Insert data into the Favorite table
         cursor.execute("""
