@@ -1,0 +1,80 @@
+-- Update Addresses field
+[
+  {
+    "$set": {
+      "Addresses": [
+        {
+          "Type": "Home",
+          "Street": "$Street",
+          "City": "$City",
+          "Country": "$Country",
+          "Zip Code": "$Zip Code"
+        }
+      ]
+    }
+  },
+  {
+    "$unset": [
+      "Street",
+      "City",
+      "Country",
+      "Zip Code"
+    ]
+  }
+]
+
+-- Update favorites field
+[
+  {
+    "$set": {
+      "Favourites": [
+        {
+          "Type": "Book",
+          "Value": "$Favourite Book"
+        },
+        {
+          "Type": "Drink",
+          "Value": "$Favourite Drink"
+        },
+        {
+          "Type": "Activity",
+          "Value": "$Favourite Activity"
+        }
+      ]
+    }
+  },
+  {
+    "$unset": [
+      "Favourite Book",
+      "Favourite Drink",
+      "Favourite Activity"
+    ]
+  }
+]
+
+
+-- Update Neighbours field
+[
+    {
+        $set: {
+            Neighbours: [
+                {
+                    "Neighbour Name": "$Neighbour 1 Name",
+                    "Neighbour Email": "$Neighbour 1 Email"
+                },
+                {
+                    "Neighbour Name": "$Neighbour 2 Name",
+                    "Neighbour Email": "$Neighbour 2 Email"
+                }
+            ]
+        }
+    },
+    {
+        $unset: [
+            "Neighbour 1 Name",
+            "Neighbour 1 Email",
+            "Neighbour 2 Name",
+            "Neighbour 2 Email"
+        ]
+    }
+]
