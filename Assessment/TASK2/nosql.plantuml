@@ -5,25 +5,25 @@
     "Name": "String",
     "Email": "String",
     "DOB": "String",
-    "Address": {
+    "Addresses": [
+      {
+      "Type": "String",
       "Street": "String",
       "City": "String",
       "Country": "String",
       "Zip Code": "String"
-    },
-    "Favorite": {
-      "Favorite Book": "String",
-      "Favorite Drink": "String",
-      "Favorite Activity": "String"
-    },
+      }
+    ],
     "Neighbours": [
       {
-        "Neighbour 1": "String",
-        "Neighbour1Email": "String"
-      },
+        "Neighbour Name": "String",
+        "Neighbour Email": "String"
+      }
+    ],
+    "Favourites": [
       {
-        "Neighbour mode2": "String",
-        "Neighbour2Email": "String"
+        "Type": "String",
+        "Value": "String"
       }
     ]
   }
