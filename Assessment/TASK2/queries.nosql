@@ -1,36 +1,29 @@
 -- Display person's name and their age in years:
 [
   {
-    "$addFields": {
-      "DOB": {
-        "$dateFromString": {
-          "dateString": "$DOB",
-          "format": "%d/%m/%Y" // format the date
+    $addFields: {
+      AgeInDays: {
+        $dateDiff: {
+          startDate: "$DOB",
+          endDate: "$$NOW",
+          unit: "day"
         }
       }
     }
   },
   {
-    "$addFields": {
-      "Age": {
-        "$floor": {
-          "$divide": [
-            {
-              "$subtract": [
-                new Date(),
-                "$DOB"
-              ]
-            },
-            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
-          ]
+    $addFields: {
+      Age: {
+        $floor: {
+          $divide: ["$AgeInDays", 365]
         }
       }
     }
   },
   {
-    "$project": {
-      "Name": 1,
-      "Age": 1
+    $project: {
+      Name: 1,
+      Age: "$Age"
     }
   }
 ]
@@ -39,10 +32,11 @@
 [
   {
     "$addFields": {
-      "DOB": {
-        "$dateFromString": {
-          "dateString": "$DOB",
-          "format": "%d/%m/%Y" // format the date
+      "AgeInDays": {
+        "$dateDiff": {
+          "startDate": "$DOB",
+          "endDate": "$$NOW",
+          "unit": "day"
         }
       }
     }
@@ -51,33 +45,32 @@
     "$addFields": {
       "Age": {
         "$floor": {
-          "$divide": [
-            {
-              "$subtract": [
-                new Date(),
-                "$DOB"
-              ]
-            },
-            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
-          ]
+          "$divide": ["$AgeInDays", 365]
         }
       }
     }
   },
   {
-    "$unwind": "$Favourites" // deconstruct the array
+    "$unwind": "$Favourite"
   },
   {
     "$match": {
-      "Favourites.Type": "Drink"
+      "Favourite.Type": "Drink"
     }
   },
   {
     "$group": {
-      "_id": "$Favourites.Value",
-      "averageAge": {
+      "_id": "$Favourite.Value",
+      "AverageAge": {
         "$avg": "$Age"
       }
+    }
+  },
+  {
+    "$project": {
+      "FavouriteDrink": "$_id",
+      "AverageAge": 1,
+      "_id": 0
     }
   }
 ]
@@ -87,10 +80,11 @@
 [
   {
     "$addFields": {
-      "DOB": {
-        "$dateFromString": {
-          "dateString": "$DOB",
-          "format": "%d/%m/%Y" // format the date
+      "AgeInDays": {
+        "$dateDiff": {
+          "startDate": "$DOB",
+          "endDate": "$$NOW",
+          "unit": "day"
         }
       }
     }
@@ -99,34 +93,33 @@
     "$addFields": {
       "Age": {
         "$floor": {
-          "$divide": [
-            {
-              "$subtract": [
-                new Date(),
-                "$DOB"
-              ]
-            },
-            365.25 * 24 * 60 * 60 * 1000 // calculate the age with gap years
-          ]
+          "$divide": ["$AgeInDays", 365]
         }
       }
     }
   },
   {
-    "$unwind": "$Favourites" // deconstruct the array
+    "$unwind": "$Favourite"
   },
   {
     "$match": {
-      "Favourites.Type": "Activity",
-      "Favourites.Value": "Hiking"
+      "Favourite.Type": "Activity",
+      "Favourite.Value": "Hiking"
     }
   },
   {
     "$group": {
-      "_id": "$Favourites.Value",
-      "Average Age": {
+      "_id": "$Favourite.Value",
+      "AverageAge": {
         "$avg": "$Age"
       }
+    }
+  },
+  {
+    "$project": {
+      _id: 0,
+      Favourite: "$_id",
+      "AverageAge": 1
     }
   }
 ]
@@ -134,36 +127,46 @@
 -- Display the total number of people from each City and sort it in ascending order by total number of people
 [
   {
-    "$unwind": "$Addresses" // deconstruct the array
+    $unwind: "$Address"
   },
   {
-    "$group": {
-      "_id": "$Addresses.City",
-      "totalPeople": {
-        "$sum": 1
+    $group: {
+      _id: "$Address.City",
+      "Number of People": {
+        $sum: 1
       }
     }
   },
   {
-    "$sort": {
-      "totalPeople": 1 // sort in ascending order
+    $sort: {
+      "Number of People": 1
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      City: "$_id",
+      "Number of People": 1
     }
   }
 ]
+
+
 -- Display name of person(s) whose neighbour is neighbour C
 [
   {
-    "$unwind": "$Neighbours"  // deconstruct the array
+    "$unwind": "$Neighbour"
   },
   {
     "$match": {
-      "Neighbours.Neighbour Name": "Neighbour C"
+      "Neighbour.Neighbour Name": "Neighbour C"
     }
   },
   {
     "$project": {
+      _id: 0,
       "Name": 1,
-      "Neighbour Name": "$Neighbours.Neighbour Name"
+      "Neighbour": "$Neighbour.Neighbour Name"
     }
   }
 ]

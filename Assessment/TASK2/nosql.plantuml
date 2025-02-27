@@ -4,23 +4,22 @@
     "_id": "ObjectId",
     "Name": "String",
     "Email": "String",
-    "DOB": "String",
-    "Addresses": [
+    "DOB": "Date",
+    "Address": [
       {
-      "Type": "String",
       "Street": "String",
       "City": "String",
       "Country": "String",
       "Zip Code": "String"
       }
     ],
-    "Neighbours": [
+    "Neighbour": [
       {
         "Neighbour Name": "String",
         "Neighbour Email": "String"
       }
     ],
-    "Favourites": [
+    "Favourite": [
       {
         "Type": "String",
         "Value": "String"

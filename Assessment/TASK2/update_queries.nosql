@@ -2,9 +2,8 @@
 [
   {
     "$set": {
-      "Addresses": [
+      "Address": [
         {
-          "Type": "Home",
           "Street": "$Street",
           "City": "$City",
           "Country": "$Country",
@@ -27,7 +26,7 @@
 [
   {
     "$set": {
-      "Favourites": [
+      "Favourite": [
         {
           "Type": "Book",
           "Value": "$Favourite Book"
@@ -57,7 +56,7 @@
 [
     {
         $set: {
-            Neighbours: [
+            Neighbour: [
                 {
                     "Neighbour Name": "$Neighbour 1 Name",
                     "Neighbour Email": "$Neighbour 1 Email"
