@@ -1,0 +1,52 @@
+@startuml 3NF
+
+skinparam linetype ortho
+
+hide circle
+
+entity "Person" {
+  * person_id : INTEGER  <<PK>>
+  --
+  * name : VARCHAR(255)
+  * email : VARCHAR(255)
+  * dob : DATE
+}
+
+entity "PersonAddress" {
+  * person_id : INTEGER  <<PK>> <<FK>>
+  * address_id : INTEGER  <<PK>> <<FK>>
+}
+
+entity "Address" {
+  * address_id : INTEGER  <<PK>>
+  --
+  * street : VARCHAR(255)
+  * city : VARCHAR(255)
+  * country : VARCHAR(255)
+  * zipcode : VARCHAR(255)
+}
+
+entity "NeighboursPair" {
+  * neighbour1_name : VARCHAR(255)   <<PK>>
+  * neighbour1_email : VARCHAR(255)
+  * neighbour2_name : VARCHAR(255)   <<PK>>
+  * neighbour2_email : VARCHAR(255)
+  * address_id: INTEGER   <<PK>> <<FK>>
+  --
+}
+
+
+entity "Favourite" {
+  * favourite_id : INTEGER  <<PK>>
+  --
+  * type : VARCHAR(255)
+  * value : VARCHAR(255)
+  * person_id : INTEGER  <<FK>>
+}
+
+Person ||--|{ PersonAddress
+Address ||-up-|{ PersonAddress
+Address ||--|| NeighboursPair
+
+Person ||--|{ Favourite
+@enduml

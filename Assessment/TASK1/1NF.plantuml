@@ -2,21 +2,23 @@
 
 hide circle
 
-entity "1NF" {
-  * id : INTEGER NOT NULL <<PK>>
+entity "Person" {
+  * person_id : INTEGER  <<PK>>
   --
-  * name : VARCHAR(255) NOT NULL
-  * email : VARCHAR(255) NOT NULL
-  * dob : DATE NOT NULL
-  * street : VARCHAR(255) NOT NULL
-  * city : VARCHAR(255) NOT NULL
-  * country : VARCHAR(255) NOT NULL
-  * zipcode : VARCHAR(255) NOT NULL
-  * favourite_books : VARCHAR(255) NOT NULL
-  * favourite_drink : VARCHAR(255) NOT NULL
-  * favourite_activity : VARCHAR(255) NOT NULL
-  * neighbour_name : VARCHAR(255) NOT NULL
-  * neighbour_email : VARCHAR(255) NOT NULL
+  * name : VARCHAR(255)
+  * email : VARCHAR(255)
+  * dob : DATE
+  * street : VARCHAR(255)
+  * city : VARCHAR(255)
+  * country : VARCHAR(255)
+  * zipcode : VARCHAR(255)
+  * favourite_books : VARCHAR(255)
+  * favourite_drink : VARCHAR(255)
+  * favourite_activity : VARCHAR(255)
+  * neighbour1_name : VARCHAR(255)
+  * neighbour1_email : VARCHAR(255)
+  * neighbour2_name : VARCHAR(255)
+  * neighbour2_email : VARCHAR(255)
 }
 
 @enduml
