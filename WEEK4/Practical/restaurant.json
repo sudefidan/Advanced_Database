@@ -1,0 +1,245 @@
+[
+  {
+    "address": {
+      "building": "10",
+      "coord": [ -0.127758, 51.507351 ],
+      "street": "Baker Street",
+      "zipcode": "NW1 6XE"
+    },
+    "borough": "London",
+    "cuisine": "British",
+    "grades": [
+      { "date": { "$date": 1615238400000 }, "grade": "A", "score": 5 },
+      { "date": { "$date": 1608000000000 }, "grade": "B", "score": 12 },
+      { "date": { "$date": 1592198400000 }, "grade": "A", "score": 3 }
+    ],
+    "name": "The Queen's Pub",
+    "restaurant_id": "10012345"
+  },
+  {
+    "address": {
+      "building": "22",
+      "coord": [ -0.142585, 51.492466 ],
+      "street": "Oxford Street",
+      "zipcode": "W1D 1AP"
+    },
+    "borough": "London",
+    "cuisine": "Indian",
+    "grades": [
+      { "date": { "$date": 1632777600000 }, "grade": "A", "score": 4 },
+      { "date": { "$date": 1627862400000 }, "grade": "A", "score": 6 },
+      { "date": { "$date": 1608931200000 }, "grade": "B", "score": 10 }
+    ],
+    "name": "Curry House",
+    "restaurant_id": "10012346"
+  },
+  {
+    "address": {
+      "building": "19",
+      "coord": [ -0.140402, 51.490647 ],
+      "street": "Regent Street",
+      "zipcode": "W1B 4DY"
+    },
+    "borough": "London",
+    "cuisine": "Italian",
+    "grades": [
+      { "date": { "$date": 1618675200000 }, "grade": "A", "score": 8 },
+      { "date": { "$date": 1606953600000 }, "grade": "A", "score": 7 }
+    ],
+    "name": "La Trattoria",
+    "restaurant_id": "10012347"
+  },
+  {
+    "address": {
+      "building": "37",
+      "coord": [ -0.177218, 51.493080 ],
+      "street": "Covent Garden",
+      "zipcode": "WC2E 8RF"
+    },
+    "borough": "London",
+    "cuisine": "French",
+    "grades": [
+      { "date": { "$date": 1626028800000 }, "grade": "A", "score": 2 },
+      { "date": { "$date": 1609574400000 }, "grade": "A", "score": 5 }
+    ],
+    "name": "Le Bistro",
+    "restaurant_id": "10012348"
+  },
+  {
+    "address": {
+      "building": "25",
+      "coord": [ -0.131800, 51.495643 ],
+      "street": "Piccadilly Circus",
+      "zipcode": "W1J 9HP"
+    },
+    "borough": "London",
+    "cuisine": "Japanese",
+    "grades": [
+      { "date": { "$date": 1630656000000 }, "grade": "A", "score": 3 },
+      { "date": { "$date": 1614201600000 }, "grade": "B", "score": 11 }
+    ],
+    "name": "Sakura Sushi",
+    "restaurant_id": "10012349"
+  },
+  {
+    "address": {
+      "building": "12",
+      "coord": [ -0.118225, 51.515502 ],
+      "street": "King's Cross",
+      "zipcode": "N1 9AA"
+    },
+    "borough": "London",
+    "cuisine": "Mexican",
+    "grades": [
+      { "date": { "$date": 1622284800000 }, "grade": "A", "score": 4 },
+      { "date": { "$date": 1609507200000 }, "grade": "A", "score": 5 },
+      { "date": { "$date": 1585257600000 }, "grade": "B", "score": 9 }
+    ],
+    "name": "El Taco",
+    "restaurant_id": "10012350"
+  },
+  {
+    "address": {
+      "building": "5",
+      "coord": [ -0.109421, 51.514430 ],
+      "street": "Carnaby Street",
+      "zipcode": "W1F 9PF"
+    },
+    "borough": "London",
+    "cuisine": "Spanish",
+    "grades": [
+      { "date": { "$date": 1619827200000 }, "grade": "A", "score": 6 },
+      { "date": { "$date": 1603708800000 }, "grade": "A", "score": 7 }
+    ],
+    "name": "La Paella",
+    "restaurant_id": "10012351"
+  },
+  {
+    "address": {
+      "building": "41",
+      "coord": [ -0.139044, 51.514914 ],
+      "street": "Leicester Square",
+      "zipcode": "WC2H 7DE"
+    },
+    "borough": "London",
+    "cuisine": "American",
+    "grades": [
+      { "date": { "$date": 1634620800000 }, "grade": "A", "score": 3 },
+      { "date": { "$date": 1615267200000 }, "grade": "A", "score": 5 }
+    ],
+    "name": "Big Burger",
+    "restaurant_id": "10012352"
+  },
+  {
+    "address": {
+      "building": "8",
+      "coord": [ -0.137637, 51.509279 ],
+      "street": "Soho",
+      "zipcode": "W1D 3SS"
+    },
+    "borough": "London",
+    "cuisine": "Thai",
+    "grades": [
+      { "date": { "$date": 1627334400000 }, "grade": "A", "score": 2 },
+      { "date": { "$date": 1604908800000 }, "grade": "A", "score": 4 }
+    ],
+    "name": "Spice Thai",
+    "restaurant_id": "10012353"
+  },
+  {
+    "address": {
+      "building": "16",
+      "coord": [ -0.120124, 51.510859 ],
+      "street": "Oxford Circus",
+      "zipcode": "W1D 1AG"
+    },
+    "borough": "Manchester",
+    "cuisine": "Greek",
+    "grades": [
+      { "date": { "$date": 1629187200000 }, "grade": "A", "score": 6 },
+      { "date": { "$date": 1604913600000 }, "grade": "A", "score": 7 }
+    ],
+    "name": "Mediterranean Delights",
+    "restaurant_id": "10012354"
+  },
+  {
+    "address": {
+      "building": "13",
+      "coord": [ -0.123456, 51.509876 ],
+      "street": "Abbey Road",
+      "zipcode": "NW8 9AY"
+    },
+    "borough": "Edinburgh",
+    "cuisine": "American",
+    "grades": [
+      { "date": { "$date": 1626038400000 }, "grade": "B", "score": 8 },
+      { "date": { "$date": 1614787200000 }, "grade": "A", "score": 6 }
+    ],
+    "name": "The Big Diner",
+    "restaurant_id": "10012355"
+  },
+  {
+    "address": {
+      "building": "18",
+      "coord": [ -0.146928, 51.508672 ],
+      "street": "Oxford Street",
+      "zipcode": "W1D 2JR"
+    },
+    "borough": "Liverpool",
+    "cuisine": "Indian",
+    "grades": [
+      { "date": { "$date": 1621795200000 }, "grade": "A", "score": 9 },
+      { "date": { "$date": 1605100800000 }, "grade": "B", "score": 7 }
+    ],
+    "name": "Royal Curry House",
+    "restaurant_id": "10012356"
+  },
+  {
+    "address": {
+      "building": "3",
+      "coord": [ -0.143942, 51.509254 ],
+      "street": "Camden High Street",
+      "zipcode": "NW1 8DN"
+    },
+    "borough": "Manchester",
+    "cuisine": "Italian",
+    "grades": [
+      { "date": { "$date": 1627340700000 }, "grade": "A", "score": 8 },
+      { "date": { "$date": 1614100800000 }, "grade": "A", "score": 9 }
+    ],
+    "name": "Pasta Bella",
+    "restaurant_id": "10012357"
+  },
+  {
+    "address": {
+      "building": "12",
+      "coord": [ -0.114675, 51.512840 ],
+      "street": "Kingsway",
+      "zipcode": "WC2B 6BL"
+    },
+    "borough": "Bristol",
+    "cuisine": "Mexican",
+    "grades": [
+      { "date": { "$date": 1617811200000 }, "grade": "A", "score": 10 },
+      { "date": { "$date": 1608230400000 }, "grade": "A", "score": 8 }
+    ],
+    "name": "El Camino",
+    "restaurant_id": "10012358"
+  },
+  {
+    "address": {
+      "building": "29",
+      "coord": [ -0.156392, 51.520238 ],
+      "street": "Great Marlborough Street",
+      "zipcode": "W1F 7EH"
+    },
+    "borough": "Edinburgh",
+    "cuisine": "Japanese",
+    "grades": [
+      { "date": { "$date": 1614940800000 }, "grade": "A", "score": 6 },
+      { "date": { "$date": 1606848000000 }, "grade": "B", "score": 9 }
+    ],
+    "name": "Sushi Master",
+    "restaurant_id": "10012359"
+  }
+]
