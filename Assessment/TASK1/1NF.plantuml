@@ -12,13 +12,20 @@ entity "Person" {
   * city : VARCHAR(255)
   * country : VARCHAR(255)
   * zipcode : VARCHAR(255)
-  * favourite_books : VARCHAR(255)
-  * favourite_drink : VARCHAR(255)
-  * favourite_activity : VARCHAR(255)
   * neighbour1_name : VARCHAR(255)
   * neighbour1_email : VARCHAR(255)
   * neighbour2_name : VARCHAR(255)
   * neighbour2_email : VARCHAR(255)
 }
+
+entity "Favourite" {
+  * favourite_id : INTEGER  <<PK>>
+  --
+  * type : VARCHAR(255)
+  * value : VARCHAR(255)
+  * person_id : INTEGER  <<FK>>
+}
+
+Person ||-right-|{ Favourite
 
 @enduml
