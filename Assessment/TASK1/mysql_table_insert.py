@@ -8,6 +8,7 @@ df = pd.read_excel('Assessment/DataCaseScenario.xlsx')
 # Convert the 'DOB' column to the correct date format
 df['DOB'] = pd.to_datetime(df['DOB']).dt.strftime('%Y-%m-%d')
 
+
 # Connect to the MySQL database
 conn = mysql.connector.connect(
     host='127.0.0.1',
